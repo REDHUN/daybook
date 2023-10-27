@@ -9,8 +9,10 @@ class TextFiledDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(30))),
+        color: Colors.white,
+        // borderRadius: BorderRadius.all(Radius.circular(30)
+        // ),
+      ),
       height: 25,
       width: MediaQuery.of(context).size.width / 4,
       child: TextFormField(
@@ -21,14 +23,14 @@ class TextFiledDesign extends StatelessWidget {
           fillColor: Colors.white,
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.white, width: 1.5),
-            borderRadius: BorderRadius.circular(8.0),
+            //borderRadius: BorderRadius.circular(8.0),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.white, width: 1.5),
-            borderRadius: BorderRadius.circular(8.0),
+            //  borderRadius: BorderRadius.circular(8.0),
           ),
           contentPadding: EdgeInsets.all(0),
-          border: OutlineInputBorder(),
+          // border: OutlineInputBorder(),
           hintText: hint,
           hintStyle: TextStyle(color: Colors.grey[400]),
         ),

@@ -8,8 +8,9 @@ class HomePageText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-          color: const Color.fromARGB(255, 17, 7, 7),
-          fontWeight: FontWeight.bold),
+          color: const Color.fromARGB(255, 254, 203, 60),
+          fontWeight: FontWeight.bold,
+          fontSize: 17),
     );
   }
 }

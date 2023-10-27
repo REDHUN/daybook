@@ -17,14 +17,14 @@ class LastPageTextField extends StatelessWidget {
             fillColor: Colors.white,
             enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.white, width: 1.5),
-              borderRadius: BorderRadius.circular(8.0),
+              //borderRadius: BorderRadius.circular(8.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.white, width: 1.5),
-              borderRadius: BorderRadius.circular(8.0),
+              // borderRadius: BorderRadius.circular(8.0),
             ),
             contentPadding: EdgeInsets.all(0),
-            border: OutlineInputBorder(),
+            // border: OutlineInputBorder(),
             hintStyle: TextStyle(color: Colors.black)),
       ),
     );

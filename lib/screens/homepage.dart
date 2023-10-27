@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 import 'package:daybook/screens/screentwo.dart';
@@ -28,6 +30,10 @@ class _HomePageState extends State<HomePage> {
   var cngbop = TextEditingController();
   var cngbclo = TextEditingController();
   var twot = TextEditingController();
+
+  _bottommodelsheet() {
+    return Container();
+  }
 
   void _openAddRate() {
     showModalBottomSheet(
@@ -138,28 +144,24 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           elevation: 0,
           title: Text(
-            'DAY BOOK',
+            'DAY  BOOK',
             style: TextStyle(
-              fontSize: 20,
-              color: Color.fromARGB(255, 0, 0, 0),
+              fontSize: 28,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: Color.fromARGB(255, 63, 255, 88),
+          backgroundColor: Colors.black,
           toolbarHeight: 100,
           flexibleSpace: Container(
             decoration: const BoxDecoration(),
           ),
-          actions: [
-            Container(
-              margin: EdgeInsets.all(20),
-              width: 50,
-              height: 30,
-              child: Image.asset(
-                'assets/petrol3.png',
-              ),
+          leading: Builder(
+            builder: (context) => IconButton(
+              icon: Icon(Icons.more_vert, size: 40),
+              onPressed: () => Scaffold.of(context).openDrawer(),
             ),
-          ],
+          ),
         ),
         drawer: Drawer(
           child: ListView(
@@ -167,20 +169,20 @@ class _HomePageState extends State<HomePage> {
             children: [
               const DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 63, 255, 88),
+                  color: Colors.black,
                 ), //BoxDecoration
                 child: UserAccountsDrawerHeader(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 63, 255, 88),
+                    color: Colors.black,
                   ),
                   accountName: Text(
                     "Redhun",
                     style: TextStyle(fontSize: 18),
                   ),
                   accountEmail: Text("redhuns123@gmail.com"),
-                  currentAccountPictureSize: Size.square(50),
+
                   currentAccountPicture: CircleAvatar(
-                    backgroundColor: Color.fromARGB(255, 165, 255, 137),
+                    backgroundColor: Colors.white,
                     child: Text(
                       "R",
                       style: TextStyle(fontSize: 30.0, color: Colors.blue),
@@ -220,7 +222,8 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        body: SizedBox(
+        body: Container(
+          color: Colors.black,
           height: double.infinity,
           child: SingleChildScrollView(
             child: Column(
@@ -233,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                       EdgeInsets.all(MediaQuery.of(context).size.width / 80),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 63, 255, 88),
+                    color: Color.fromARGB(255, 31, 31, 31),
                     // borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                   child: Row(
@@ -296,15 +299,18 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 Container(
                   height: 150,
                   margin:
-                      EdgeInsets.all(MediaQuery.of(context).size.width / 80),
+                      EdgeInsets.all(MediaQuery.of(context).size.width / 70),
                   padding:
                       EdgeInsets.all(MediaQuery.of(context).size.width / 80),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 63, 255, 88),
+                    color: Color.fromARGB(255, 31, 31, 31),
                     //borderRadius: BorderRadius.all(Radius.circular(20),),
                   ),
                   child: Row(
@@ -365,6 +371,9 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 Container(
                   height: 150,
                   margin:
@@ -373,7 +382,7 @@ class _HomePageState extends State<HomePage> {
                       EdgeInsets.all(MediaQuery.of(context).size.width / 70),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 63, 255, 88),
+                    color: Color.fromARGB(255, 31, 31, 31),
                     // borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                   child: Column(
@@ -422,7 +431,7 @@ class _HomePageState extends State<HomePage> {
                       EdgeInsets.all(MediaQuery.of(context).size.width / 40),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 63, 255, 88),
+                    color: Color.fromARGB(255, 31, 31, 31),
                     // borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                   child: Row(
@@ -432,19 +441,45 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                TextButton(
-                    onPressed: _submitData,
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 63, 255, 88),
-                    )),
-                    child: Text(
-                      'Entry Expense',
-                      style: TextStyle(color: Colors.white),
-                    ))
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.arrow_back_ios_sharp,
+                        color: Color.fromARGB(255, 254, 203, 60),
+                      ),
+                      onPressed: _submitData,
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                        Color.fromARGB(255, 31, 31, 31),
+                      )),
+                      label: Text(
+                        'Entry Expense',
+                        style:
+                            TextStyle(color: Color.fromARGB(255, 254, 203, 60)),
+                      )),
+                )
               ],
             ),
           ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        floatingActionButton: FloatingActionButton(
+          shape: ContinuousRectangleBorder(
+              borderRadius: BorderRadius.circular(50)),
+          // isExtended: true,
+          child: Icon(
+            Icons.arrow_drop_up_sharp,
+            size: 50,
+            color: Colors.black,
+          ),
+          backgroundColor: Color.fromARGB(255, 254, 203, 60),
+          onPressed: () {
+            showModalBottomSheet(
+                isScrollControlled: true,
+                context: context,
+                builder: (ctx) => _bottommodelsheet());
+          },
         ));
   }
 }
