@@ -58,33 +58,24 @@ class LastScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Sales Reports',
-          style: TextStyle(
-            fontSize: 20,
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        backgroundColor: Color.fromARGB(255, 63, 255, 88),
-        toolbarHeight: 100,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(),
-        ),
-        actions: [
-          Container(
-            margin: EdgeInsets.all(20),
-            width: 50,
-            height: 30,
-            child: Image.asset(
-              'assets/petrol3.png',
+          elevation: 0,
+          title: Text(
+            'Expense Entry',
+            style: TextStyle(
+              fontSize: 28,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
-        ],
-      ),
+          backgroundColor: Colors.black,
+          toolbarHeight: 100,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(),
+          ),
+          
+        ),
       body: SingleChildScrollView(
-        child: Container(
+        child: Container(color: Colors.black,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -96,7 +87,7 @@ class LastScreen extends StatelessWidget {
                 padding: EdgeInsets.all(MediaQuery.of(context).size.width / 70),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 63, 255, 88),
+                  color: Color.fromARGB(255, 31, 31, 31),
                   // borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Column(
@@ -109,7 +100,7 @@ class LastScreen extends StatelessWidget {
                     Row(
                       children: [
                         LastPageText(
-                            text: 'NOZZLE 1 MS :          ', size: 15.0),
+                            text: 'NOZZLE 1 MS :            ', size: 15.0),
                         LastPageTextField(hintText: nozzel1ms)
                       ],
                     ),
@@ -119,7 +110,7 @@ class LastScreen extends StatelessWidget {
                     Row(
                       children: [
                         LastPageText(
-                            text: 'NOZZLE 2 MS :           ', size: 15.0),
+                            text: 'NOZZLE 2 MS :             ', size: 15.0),
                         LastPageTextField(hintText: nozzle2ms)
                       ],
                     ),
@@ -142,7 +133,7 @@ class LastScreen extends StatelessWidget {
                 padding: EdgeInsets.all(MediaQuery.of(context).size.width / 70),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 63, 255, 88),
+                  color: Color.fromARGB(255, 31, 31, 31),
                   //  borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Column(
@@ -155,7 +146,7 @@ class LastScreen extends StatelessWidget {
                     Row(
                       children: [
                         LastPageText(
-                            text: 'NOZZLE 1 HSD :        ', size: 15.0),
+                            text: 'NOZZLE 1 HSD :          ', size: 15.0),
                         LastPageTextField(hintText: nozzel1hsd)
                       ],
                     ),
@@ -165,7 +156,7 @@ class LastScreen extends StatelessWidget {
                     Row(
                       children: [
                         LastPageText(
-                            text: 'NOZZLE 2 HSD :         ', size: 15.0),
+                            text: 'NOZZLE 2 HSD :          ', size: 15.0),
                         LastPageTextField(hintText: nozzle2hsd)
                       ],
                     ),
@@ -188,7 +179,7 @@ class LastScreen extends StatelessWidget {
                 padding: EdgeInsets.all(MediaQuery.of(context).size.width / 70),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 63, 255, 88),
+                  color: Color.fromARGB(255, 31, 31, 31),
                   //borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Column(
@@ -234,7 +225,7 @@ class LastScreen extends StatelessWidget {
                 padding: EdgeInsets.all(MediaQuery.of(context).size.width / 70),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 63, 255, 88),
+                  color: Color.fromARGB(255, 31, 31, 31),
                   //borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Column(
@@ -247,7 +238,7 @@ class LastScreen extends StatelessWidget {
                     Row(
                       children: [
                         LastPageText(
-                            text: 'Grant Total Sale :        ', size: 15.0),
+                            text: 'Grant Total Sale :       ', size: 15.0),
                         LastPageTextField(hintText: _grandtotal())
                       ],
                     ),

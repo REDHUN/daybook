@@ -90,34 +90,25 @@ class _ScreenTwoState extends State<ScreenTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Expense Entry',
-          style: TextStyle(
-            fontSize: 20,
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        backgroundColor: Color.fromARGB(255, 63, 255, 88),
-        toolbarHeight: 100,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(),
-        ),
-        actions: [
-          Container(
-            margin: EdgeInsets.all(20),
-            width: 50,
-            height: 30,
-            child: Image.asset(
-              'assets/petrol3.png',
+          elevation: 0,
+          title: Text(
+            'Expense Entry',
+            style: TextStyle(
+              fontSize: 28,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
-        ],
-      ),
+          backgroundColor: Colors.black,
+          toolbarHeight: 100,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(),
+          ),
+          
+        ),
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.white,
+          color: Colors.black,
           width: MediaQuery.of(context).size.height,
           child: Column(
             children: [
@@ -125,7 +116,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                 padding: EdgeInsets.all(13),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 63, 255, 88),
+                  color: Color.fromARGB(255, 31, 31, 31),
                   // borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 margin: EdgeInsets.all(20),
@@ -147,7 +138,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                     ),
                     Row(
                       children: [
-                        HomePageText(text: 'AGS :                      '),
+                        HomePageText(text: 'AGS :                       '),
                         SecondTextFiled(
                           data: ags,
                         )
@@ -158,7 +149,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                     ),
                     Row(
                       children: [
-                        HomePageText(text: 'SIB :                        '),
+                        HomePageText(text: 'SIB :                         '),
                         SecondTextFiled(
                           data: sib,
                         )
@@ -169,7 +160,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                     ),
                     Row(
                       children: [
-                        HomePageText(text: 'Paytm :                  '),
+                        HomePageText(text: 'Paytm :                   '),
                         SecondTextFiled(
                           data: ptm,
                         )
@@ -180,7 +171,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                     ),
                     Row(
                       children: [
-                        HomePageText(text: 'Gpay SIB :             '),
+                        HomePageText(text: 'Gpay SIB :              '),
                         SecondTextFiled(
                           data: gpay,
                         )
@@ -191,7 +182,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                     ),
                     Row(
                       children: [
-                        HomePageText(text: 'Extra Reward:       '),
+                        HomePageText(text: 'Extra Reward:      '),
                         SecondTextFiled(
                           data: er,
                         )
@@ -234,16 +225,25 @@ class _ScreenTwoState extends State<ScreenTwo> {
                   ],
                 ),
               ),
-              TextButton(
-                  onPressed: _submitdata,
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                    Color.fromARGB(255, 63, 255, 88),
-                  )),
-                  child: Text(
-                    'Find Short',
-                    style: TextStyle(color: const Color.fromARGB(255, 8, 7, 7)),
-                  ))
+               Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.arrow_back_ios_sharp,
+                        color: Color.fromARGB(255, 254, 203, 60),
+                      ),
+                      onPressed: _submitdata,
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                        Color.fromARGB(255, 31, 31, 31),
+                      )),
+                      label: Text(
+                        'Final Shot',
+                        style:
+                            TextStyle(color: Color.fromARGB(255, 254, 203, 60)),
+                      )),
+                ),
+                SizedBox(height: 20,)
             ],
           ),
         ),

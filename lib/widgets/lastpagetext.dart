@@ -10,7 +10,7 @@ class LastPageText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-          color: Color.fromARGB(255, 0, 0, 0),
+          color: Color.fromARGB(255, 254, 203, 60),
           fontWeight: FontWeight.bold,
           fontSize: size),
     );

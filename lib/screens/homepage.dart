@@ -1,10 +1,11 @@
+import 'package:daybook/screens/addrate.dart';
 import 'package:flutter/material.dart';
 
 import 'package:daybook/screens/screentwo.dart';
 import 'package:daybook/widgets/homepagetext.dart';
-import 'package:daybook/widgets/newRate.dart';
-import 'package:daybook/widgets/textFiled.dart';
 
+import 'package:daybook/widgets/textFiled.dart';
+import 'package:daybook/models/ratemodel.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -13,6 +14,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List<Rate> _rate=[Rate(petrolrate: 30, dieselrate: 40)];
+  
   var ms1op = TextEditingController();
   var ms1clo = TextEditingController();
   var ms2op = TextEditingController();
@@ -29,38 +32,21 @@ class _HomePageState extends State<HomePage> {
   var cngbclo = TextEditingController();
   var twot = TextEditingController();
 
-  _bottommodelsheet() {
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30), topRight: Radius.circular(30))),
-      height: MediaQuery.of(context).size.height / 2,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextFormField(
-            keyboardType: TextInputType.number,
-            textAlign: TextAlign.center,
-            decoration: InputDecoration(
-              fillColor: Colors.white,
-
-              contentPadding: EdgeInsets.all(0),
-              // border: OutlineInputBorder(),
-              hintText: 'Petrol Rate',
-              hintStyle: TextStyle(color: Colors.grey[400]),
-            ),
-          ),
-        ],
-      ),
-    );
+  
+  void  _addrate(Rate rate){
+  
+  setState(() {
+    _rate.add(rate);
+   
+  });
+  
+  print(_rate(T));
   }
-
   void _openAddRate() {
     showModalBottomSheet(
         isScrollControlled: true,
         context: context,
-        builder: (ctx) => const NewRate());
+        builder: (ctx) =>  AddRate(submitrate: _addrate));
   }
 
   _submitData() {
@@ -499,7 +485,7 @@ class _HomePageState extends State<HomePage> {
             showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
-                builder: (ctx) => _bottommodelsheet());
+                builder: (ctx) => AddRate(submitrate: _addrate,));
           },
         ));
   }
