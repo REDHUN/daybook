@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 import 'package:daybook/screens/screentwo.dart';
@@ -32,7 +30,30 @@ class _HomePageState extends State<HomePage> {
   var twot = TextEditingController();
 
   _bottommodelsheet() {
-    return Container();
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+      height: MediaQuery.of(context).size.height / 2,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextFormField(
+            keyboardType: TextInputType.number,
+            textAlign: TextAlign.center,
+            decoration: InputDecoration(
+              fillColor: Colors.white,
+
+              contentPadding: EdgeInsets.all(0),
+              // border: OutlineInputBorder(),
+              hintText: 'Petrol Rate',
+              hintStyle: TextStyle(color: Colors.grey[400]),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   void _openAddRate() {

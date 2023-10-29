@@ -7,6 +7,10 @@ var kDarkScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
   seedColor: Color.fromARGB(255, 11, 165, 207),
 );
+ThemeData _baseTheme = ThemeData(
+  fontFamily: "Roboto",
+  canvasColor: Colors.transparent,
+);
 void main() {
   runApp(const MyApp());
 }
@@ -18,6 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: _baseTheme,
       debugShowCheckedModeBanner: false,
       title: 'Reading',
       home: HomePage(),
