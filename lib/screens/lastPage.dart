@@ -14,7 +14,10 @@ class LastScreen extends StatelessWidget {
       required this.nozzle2ca,
       required this.netpay,
       required this.cashhad,
-      required this.twot});
+      required this.twot,
+      required this.dieselrate,
+      required this.petrolrate,
+      required this.cngrate});
   final double nozzel1ms;
   final double nozzle2ms;
   final double nozzel1hsd;
@@ -24,20 +27,23 @@ class LastScreen extends StatelessWidget {
   final double netpay;
   final double cashhad;
   final double twot;
+  final double petrolrate;
+  final double dieselrate;
+  final double cngrate;
 
   _grandtotal() {
-    final double grandtotal = ((nozzel1ms + nozzle2ms) * 108) +
-        ((nozzel1hsd + nozzle2hsd) * 96.9) +
-        ((nozzel1ca + nozzle2ca) * 86) +
+    final double grandtotal = ((nozzel1ms + nozzle2ms) * petrolrate) +
+        ((nozzel1hsd + nozzle2hsd) * dieselrate) +
+        ((nozzel1ca + nozzle2ca) * cngrate) +
         twot;
 
     return grandtotal.toString();
   }
 
   _netpay() {
-    final double netpay1 = (((nozzel1ms + nozzle2ms) * 108) +
-            ((nozzel1hsd + nozzle2hsd) * 96.9) +
-            ((nozzel1ca + nozzle2ca) * 86) +
+    final double netpay1 = (((nozzel1ms + nozzle2ms) * petrolrate) +
+            ((nozzel1hsd + nozzle2hsd) * dieselrate) +
+            ((nozzel1ca + nozzle2ca) * cngrate) +
             twot) -
         netpay;
     return netpay1.toString();
@@ -45,9 +51,9 @@ class LastScreen extends StatelessWidget {
 
   _short() {
     final short = cashhad -
-        ((((nozzel1ms + nozzle2ms) * 108) +
-                ((nozzel1hsd + nozzle2hsd) * 96.9) +
-                ((nozzel1ca + nozzle2ca) * 86) +
+        ((((nozzel1ms + nozzle2ms) * petrolrate) +
+                ((nozzel1hsd + nozzle2hsd) * dieselrate) +
+                ((nozzel1ca + nozzle2ca) * cngrate) +
                 twot) -
             netpay);
 
@@ -58,24 +64,24 @@ class LastScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          elevation: 0,
-          title: Text(
-            'Expense Entry',
-            style: TextStyle(
-              fontSize: 28,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
+        elevation: 0,
+        title: Text(
+          'Expense Entry',
+          style: TextStyle(
+            fontSize: 28,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
-          backgroundColor: Colors.black,
-          toolbarHeight: 100,
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(),
-          ),
-          
         ),
+        backgroundColor: Colors.black,
+        toolbarHeight: 100,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(),
+        ),
+      ),
       body: SingleChildScrollView(
-        child: Container(color: Colors.black,
+        child: Container(
+          color: Colors.black,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -122,7 +128,7 @@ class LastScreen extends StatelessWidget {
                         LastPageText(
                             text: 'Total Sale (Petrol)  :   ', size: 15.0),
                         LastPageTextField(
-                            hintText: ((nozzel1ms + nozzle2ms) * 108))
+                            hintText: ((nozzel1ms + nozzle2ms) * petrolrate))
                       ],
                     ),
                   ],
@@ -168,7 +174,7 @@ class LastScreen extends StatelessWidget {
                         LastPageText(
                             text: 'Total Sale (Diesel) :    ', size: 15.0),
                         LastPageTextField(
-                            hintText: ((nozzel1hsd + nozzle2hsd) * 96.90))
+                            hintText: ((nozzel1hsd + nozzle2hsd) * dieselrate))
                       ],
                     ),
                   ],
@@ -214,7 +220,7 @@ class LastScreen extends StatelessWidget {
                         LastPageText(
                             text: 'Total Sale (CNG) :      ', size: 15.0),
                         LastPageTextField(
-                            hintText: ((nozzel1ca + nozzle2ca) * 86))
+                            hintText: ((nozzel1ca + nozzle2ca) * cngrate))
                       ],
                     ),
                   ],

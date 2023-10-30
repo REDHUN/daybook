@@ -6,6 +6,7 @@ import 'package:daybook/widgets/homepagetext.dart';
 
 import 'package:daybook/widgets/textFiled.dart';
 import 'package:daybook/models/ratemodel.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -14,8 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Rate> _rate=[Rate(petrolrate: 30, dieselrate: 40)];
-  
   var ms1op = TextEditingController();
   var ms1clo = TextEditingController();
   var ms2op = TextEditingController();
@@ -31,22 +30,24 @@ class _HomePageState extends State<HomePage> {
   var cngbop = TextEditingController();
   var cngbclo = TextEditingController();
   var twot = TextEditingController();
+  double pertrolrate = 0;
+  double diselrate = 0;
+  double cngrate = 0;
 
-  
-  void  _addrate(Rate rate){
-  
-  setState(() {
-    _rate.add(rate);
-   
-  });
-  
-  print(_rate(T));
+  void _addrate(Rate rate) {
+    setState(() {
+      pertrolrate = rate.petrolrate;
+      diselrate = rate.dieselrate;
+      cngrate = rate.cngrate;
+    });
+    print(pertrolrate);
   }
+
   void _openAddRate() {
     showModalBottomSheet(
         isScrollControlled: true,
         context: context,
-        builder: (ctx) =>  AddRate(submitrate: _addrate));
+        builder: (ctx) => AddRate(submitrate: _addrate));
   }
 
   _submitData() {
@@ -119,6 +120,9 @@ class _HomePageState extends State<HomePage> {
                 cb: cb,
                 n2hsd: n2hsd,
                 twot: double.parse(twot.text),
+                diesalrate: diselrate,
+                petrolrate: pertrolrate,
+                cngrate: cngrate,
               )),
     );
   }
@@ -485,7 +489,9 @@ class _HomePageState extends State<HomePage> {
             showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
-                builder: (ctx) => AddRate(submitrate: _addrate,));
+                builder: (ctx) => AddRate(
+                      submitrate: _addrate,
+                    ));
           },
         ));
   }

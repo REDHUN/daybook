@@ -12,7 +12,10 @@ class ScreenTwo extends StatefulWidget {
       required this.n2hsd,
       required this.ca,
       required this.cb,
-      required this.twot});
+      required this.twot,
+      required this.diesalrate,
+      required this.petrolrate,
+      required this.cngrate});
   final double n1ms;
   final double n2ms;
   final double n1hsd;
@@ -20,6 +23,9 @@ class ScreenTwo extends StatefulWidget {
   final double ca;
   final double cb;
   final double twot;
+  final double petrolrate;
+  final double diesalrate;
+  final double cngrate;
 
   @override
   State<ScreenTwo> createState() => _ScreenTwoState();
@@ -68,6 +74,9 @@ class _ScreenTwoState extends State<ScreenTwo> {
                 netpay: netvalue,
                 cashhad: cashhand,
                 twot: widget.twot,
+                dieselrate: widget.diesalrate,
+                petrolrate: widget.petrolrate,
+                cngrate: widget.cngrate,
               )),
     );
   }
@@ -90,22 +99,21 @@ class _ScreenTwoState extends State<ScreenTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          elevation: 0,
-          title: Text(
-            'Expense Entry',
-            style: TextStyle(
-              fontSize: 28,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
+        elevation: 0,
+        title: Text(
+          'Expense Entry',
+          style: TextStyle(
+            fontSize: 28,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
-          backgroundColor: Colors.black,
-          toolbarHeight: 100,
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(),
-          ),
-          
         ),
+        backgroundColor: Colors.black,
+        toolbarHeight: 100,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.black,
@@ -225,25 +233,27 @@ class _ScreenTwoState extends State<ScreenTwo> {
                   ],
                 ),
               ),
-               Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: ElevatedButton.icon(
-                      icon: Icon(
-                        Icons.arrow_back_ios_sharp,
-                        color: Color.fromARGB(255, 254, 203, 60),
-                      ),
-                      onPressed: _submitdata,
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                        Color.fromARGB(255, 31, 31, 31),
-                      )),
-                      label: Text(
-                        'Final Shot',
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 254, 203, 60)),
-                      )),
-                ),
-                SizedBox(height: 20,)
+              Directionality(
+                textDirection: TextDirection.rtl,
+                child: ElevatedButton.icon(
+                    icon: Icon(
+                      Icons.arrow_back_ios_sharp,
+                      color: Color.fromARGB(255, 254, 203, 60),
+                    ),
+                    onPressed: _submitdata,
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                      Color.fromARGB(255, 31, 31, 31),
+                    )),
+                    label: Text(
+                      'Final Shot',
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 254, 203, 60)),
+                    )),
+              ),
+              SizedBox(
+                height: 20,
+              )
             ],
           ),
         ),

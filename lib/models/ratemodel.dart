@@ -1,9 +1,10 @@
-class Rate{
-  
-  Rate({required this.petrolrate,required this.dieselrate});
+class Rate {
+  Rate(
+      {required this.petrolrate,
+      required this.dieselrate,
+      required this.cngrate});
 
-
-final petrolrate;
-final dieselrate;
-
+  final double petrolrate;
+  final double dieselrate;
+  final double cngrate;
 }
