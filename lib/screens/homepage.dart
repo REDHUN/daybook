@@ -47,7 +47,8 @@ class _HomePageState extends State<HomePage> {
     showModalBottomSheet(
         isScrollControlled: true,
         context: context,
-        builder: (ctx) => AddRate(submitrate: _addrate));
+        builder: (ctx) =>
+            SingleChildScrollView(child: AddRate(submitrate: _addrate)));
   }
 
   _submitData() {
